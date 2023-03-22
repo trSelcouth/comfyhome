@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tisibascudan</title>
+    <link href="/tech/tech-style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/tech/tech-js.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/tech/tech-index.html">TECH</a>
+      <a href="/404.html">D&amp;D</a>
+      <a href="/index.html" class="header-title">by Niksa</a>
+      <a href="/blog/index.html">BLOG</a>
+      <a href="/404.html">CONTACT</a>
+    </header>
+    <div class="sidebar">
+      <a href="day1.html">Day I</a>
+      <a href="day2.html">Day II</a>
+      <a href="day3.html">Day III</a>
+      <a href="day4.html">Day IV</a>
+      <a href="day5.html">Day V</a>
+      <a href="day6.html">Day VI</a>
+      <a href="day7.html">Day VII</a>
+      <a href="day8.html">Day VIII</a>
+    </div>
+    <div>
+      <pre class="code">def find_marker(buffer_size, marker_name):
+        marker_buffer = []
+        marker_location = 0
+        for character in input.strip():
+            if len(marker_buffer) < buffer_size:
+                marker_buffer.append(character)
+            else:
+                # print("TRYING WINDOW", marker_buffer, "\nINDEX IS", marker_location)
+                if(all(map(lambda x: marker_buffer.count(x) == 1, marker_buffer))):
+                    print("ALL CHARACTERS ARE DIFFERENT!")
+                    print(marker_buffer)
+                    print("INDEX [" + marker_name + "]:", marker_location, "\n")
+                    break
+                else:
+                    # print("NO GOOD\n")
+                    marker_buffer.pop(0)
+                    marker_buffer.append(character)
+            marker_location += 1 
+    
+    input = open("input6.txt", "r").readline()
+    find_marker(4, "sync-marker")
+    find_marker(14, "stat-of-message-marker")    
+    </pre>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,85 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "name": "Zagreb - HR",
+            "imageUrl": "/images/previews/zagreb.jpg",
+            "siteUrl": "/blog/posts/zagreb.html",
+            "subtitle": "An alternate history tale",
+            "status": "1"
+        },
+        {
+            "id": 2,
+            "name": "Zurich - CH",
+            "imageUrl": "/images/previews/zurich.jpg",
+            "siteUrl": "/blog/posts/zurich.html",
+            "subtitle": "A tale for the brokenhearted",
+            "status": "0"
+        },
+        {
+            "id": 3,
+            "name": "Zermatt - CH",
+            "imageUrl": "/images/previews/matterhorn.webp",
+            "siteUrl": "/blog/posts/zermatt.html",
+            "subtitle": "A tale of survival",
+            "status": "0"
+        },
+        {
+            "id": 4,
+            "name": "Bern - CH",
+            "imageUrl": "/images/previews/bern.jpeg",
+            "siteUrl": "/blog/posts/bern.html",
+            "subtitle": "An erotic tale",
+            "status": "0"
+        },
+        {
+            "id": 5,
+            "name": "Paris - FR",
+            "imageUrl": "/images/previews/paris.jpg",
+            "siteUrl": "/blog/posts/paris.html",
+            "subtitle": "An unwritten tale",
+            "status": "0"
+        },
+        {
+            "id": 7,
+            "name": "London - GB",
+            "imageUrl": "/images/previews/london.jpg",
+            "siteUrl": "/blog/posts/london.html",
+            "subtitle": "An unwritten tale",
+            "status": "0"
+        },
+        {
+            "id": 8,
+            "name": "Edinburgh - GB",
+            "imageUrl": "/images/previews/edinburgh.webp",
+            "siteUrl": "/blog/posts/edinburgh.html",
+            "subtitle": "An unwritten tale",
+            "status": "0"
+        },
+        {
+            "id": 10,
+            "name": "Valletta - MT",
+            "imageUrl": "/images/previews/valletta.webp",
+            "siteUrl": "/blog/posts/valletta.html",
+            "subtitle": "An unwritten tale",
+            "status": "0"
+        },
+        {
+            "id": 11,
+            "name": "Victoria - MT",
+            "imageUrl": "/images/previews/victoria.jpg",
+            "siteUrl": "/blog/posts/victoria.html",
+            "subtitle": "An unwritten tale",
+            "status": "0"   
+        },
+        {
+            "id": 12,
+            "name": "Template - TP",
+            "imageUrl": "/images/ladies/jia.jpg",
+            "siteUrl": "/blog/posts/template-grid.html",
+            "subtitle": "A wicked playground",
+            "status": "0"
+        }
+        
+    ]
+}

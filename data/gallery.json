@@ -1,0 +1,34 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "name": "Light Speed",
+            "imageUrl": "./images/previews/lightspeed.jpg",
+            "siteUrl": "./flying/flying.html"
+        },
+        {
+            "id": 2,
+            "name": "Sort Visualisator",
+            "imageUrl": "./images/previews/bubble.jpg",
+            "siteUrl": "./SortVisuals/sort.html"
+        },
+        {
+            "id": 3,
+            "name": "Advent of Code - 2022",
+            "imageUrl": "./images/previews/aoc.jpg",
+            "siteUrl": "./tech/adventofcode/2022/day1.html"
+        },
+        {
+            "id": 4,
+            "name": "Neural Net WIP",
+            "imageUrl": "./images/previews/neuralnet.jpg",
+            "siteUrl": "./neuralnet/neuralnet.html"
+        },
+        {
+            "id": 5,
+            "name": "Zagreb",
+            "imageUrl": "./images/previews/zagreb.jpg",
+            "siteUrl": "/blog/posts/zagreb.html"
+        }
+    ]
+}

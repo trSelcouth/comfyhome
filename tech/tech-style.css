@@ -1,0 +1,158 @@
+body {
+    /* background-image: url('./images/Starfield.webp'); */
+    /* background-repeat: repeat; */
+    color: white;
+    background-color: black;
+    font-family: Verdana;
+    margin: 0px;
+  }
+  a:visited {
+    color: yellow;
+  }
+  .secret {
+    color: white;
+  }
+  .secret-btn {
+    opacity: 0.0;
+    transition-duration: 0.3s;
+  }
+  .secret-btn:hover {
+    opacity: 1.0;
+  }
+  .hdn-btn {
+    opacity: 1.0;
+  }
+  .zavrzlama {
+    font-family: monospace;
+    text-align: center;
+    background-color: gray;
+    margin: 0px;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    font-size: 3vw;
+  }
+  header {
+    font-family: monospace;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    background-color: gray;
+    margin: 0px;
+    position: sticky;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 6%;
+  }
+  header a {
+    text-decoration: none;
+    display: inline;
+    margin: 0px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 1.5vw;
+    color: white;
+    text-shadow: 1px 1px 5px black;
+  }
+  header a:hover {
+    background-color:darkgray;
+    transition: 0.3s;
+  }
+  header a:visited {
+    color: white;
+  }
+  .header-title {
+    font-size: 1.8vw;
+    font-weight: bold;
+    transition: 1s;
+  }
+  .header-title:hover {
+    transition: 1s;
+    background-color: gray;
+    text-shadow: none;
+    text-shadow: 10px 10px 5px black;
+  }
+
+  .fly-btn {
+    position: relative;
+    left: 50%;
+  }
+  .smallparagraph {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    line-height: 20px;
+    width: 40%;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    row-gap: 20px;
+    justify-items: center;
+  }
+  .photo-box-image {
+    height: 200px;
+    width: 150px;
+    background-position: center;
+    background-size: contain;
+    object-fit: cover;
+    margin: 5px;
+    transition-duration: 0.5s;
+  }
+  .photo-box-title {
+    color: white;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin: 5px;
+    text-align: center;
+  }
+  .photo-box-link {
+    text-decoration: none;
+  }
+  .photo-box-image:hover {
+    height: 400px;
+    transition-duration: 0.5s;
+  }
+
+  .code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+    margin-left: 20%;
+    margin-right: 20%
+  }
+  .sidebar {
+    margin-top: 60px;
+    height: 100%;
+    width: 10%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  .sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  .sidebar a:hover {
+    color: white;
+  }

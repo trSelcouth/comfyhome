@@ -1,0 +1,16 @@
+.plr {
+    width: 10px;
+    background-color: gray;
+    height: 200px;
+    margin: 1px;
+    text-align: center;
+    color: yellow;
+}
+.pillar-outer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+body {
+    background-color: black;
+}

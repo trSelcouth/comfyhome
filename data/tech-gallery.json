@@ -1,0 +1,28 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "name": "Light Speed",
+            "imageUrl": "/images/previews/grave.jpg",
+            "siteUrl": "/flying/flying.html"
+        },
+        {
+            "id": 2,
+            "name": "Sort Visualisator",
+            "imageUrl": "/images/previews/grave.jpg",
+            "siteUrl": "/SortVisuals/sort.html"
+        },
+        {
+            "id": 3,
+            "name": "Advent of Code 2022",
+            "imageUrl": "/images/previews/grave.jpg",
+            "siteUrl": "/tech/adventofcode/2022/day1.html"
+        },
+        {
+            "id": 4,
+            "name": "Neural Net WIP",
+            "imageUrl": "/images/previews/grave.jpg",
+            "siteUrl": "/neuralnet/neuralnet.html"
+        }
+    ]
+}

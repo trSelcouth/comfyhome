@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ligmatius The Second</title>
+        <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                color: white;
+                background-image: url('../images/Starfield.webp');
+                background-repeat: repeat;
+            }
+            li:hover {
+                background-color: yellow;
+                color: black;
+            }
+            .beauties {
+                width: 50%;
+                height: 600px;
+                background-position: center;
+                background-size: cover;
+                background-image: url('../images/ladies/jia.jpg');
+                border: 3px dashed red;
+                transition-duration: 0.3s;
+            }
+            .beauties:hover {
+                background-image: url('../images/ladies/puss.jpg');
+            }
+            *::first-letter {
+                color: red;
+            }
+            a:visited {
+                color: yellow;
+            }
+            ol {
+                font-style: oblique;
+                font-family: monospace;
+            }
+            h2 {
+                font-weight: bold;
+                text-align: center;
+                letter-spacing: 5px;
+            }
+            .smallparagraph {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-style: italic;
+                line-height: 20px;
+                width: 40%;
+            }
+            .smallparagraph:hover {
+                color: black;
+            }
+            ul, ol {
+                width: 20%;
+            }
+            dl.hor dt {
+                text-align: center;
+                font-weight: bolder;
+                font-size: large;
+            }
+            dl.hor dd {
+                text-align: center;
+                font-style: italic;
+            }
+            .hor {
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                line-height: 30px;
+            }
+
+            ol {
+                margin: 30px auto;
+                max-width: 200px;
+            }
+            .kimmy {
+                width: 8vw;
+                height: 20vw;
+                background-image: url('../images/ladies/kimmy4.jpg');
+                position: fixed;
+                top: 5%;
+                left: 85%;
+                background-size: cover;
+                background-position: center;
+            }
+            .experimental-font-size {
+                font-size: 20vw;
+            }
+            @media screen and (max-width: 600px) {
+                .kimmy {
+                    background-image: url('../images/ladies/kimmy2.jpg');
+                }
+            }
+            @media screen and (min-width: 800px) {
+                .kimmy { 
+                    background-image: url('../images/ladies/kimmy3.jpg');
+                }
+            }
+            @media screen and (min-width: 1200px) {
+                .kimmy {
+                    background-image: url('../images/ladies/kimmy.jpg');
+                }
+            }
+            .box-green {
+                background-color: lightgreen;
+            }
+            .box-red {
+                background-color: lightcoral;
+            }
+            .box {
+                font-family: 'Consolas', 'Courier', 'monospace';
+                text-align: center;
+                color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .bigbox .box {
+                box-sizing: border-box;
+            }
+            @media screen and (max-width: 768px) {
+                .box-green {
+                    margin-bottom: 20px;
+                    float: none;
+                    box-sizing: content-box;
+                }
+                .box-red {
+                    margin-top: 10px;
+                    float: none;
+                }
+            }
+            @media screen and (min-width: 769px) {
+                .box-green {
+                    margin: none;
+                    float: left;
+                    width: 50%;
+                    height: 40vh;
+                }
+                .box-red {
+                    margin: none;
+                    float: left;
+                    width: 50%;
+                    height: 40vh;
+                }
+            }
+
+            .flex-cont {
+                display: flex;
+                padding: 0px;
+                flex-flow: row-reverse wrap;
+                list-style: none;
+                border: 3px dashed white;
+                width: 100%;
+            }
+            .flex-item {
+                background: blue;
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                line-height: 100px;
+                color: white;
+                font-weight: bold;
+                font-size: 2em;
+                text-align: center;
+            }
+            .namer {
+                font-size: 100%;
+            }
+            .f-space-btwn {
+                justify-content: space-between;
+            }
+            .f-cntr {
+                justify-content: center;
+            }
+            .f-fx-start {
+                justify-content: flex-start;
+            }
+            .f-fx-end {
+                justify-content: flex-end;
+            }
+            .f-space-evn {
+                justify-content: space-evenly;
+            }
+            .mastergrid {
+                display: grid;
+                border: 2px green dashed;
+                grid-template-columns: auto auto auto auto;
+            }
+            .griditem {
+                background: green;
+                width: 100px;
+                margin: 10px;
+                color: white;
+                font-weight: bold;
+                font-size: 2em;
+                text-align: center;
+                line-height: 100px;
+            }
+            .red {
+                color: white;
+            }
+            .hello {
+                opacity: 0.0;
+                width: 30%;
+                margin-right: 10px;
+                /* display: inline; */
+            }
+            .hello:hover {
+                opacity: 1.0;
+            }
+        </style>
+        <script>
+            function colourMe() {
+                let secrets = document.getElementsByClassName("red");
+                Array.from(secrets).forEach((secret) => {
+                    secret.style.color = "red";
+                });
+            }
+
+            function convert() {
+                if (parseFloat(document.getElementById("convertor").value) >= 0) {
+                    let diff, mojTecaj = localStorage.getItem('EUR');
+                    if (mojTecaj) {
+                        mojTecaj = JSON.parse(mojTecaj);
+                        diff = (new Date()).getTime() - mojTecaj.ts;
+                    }
+                    if (mojTecaj && diff <= 5000) {
+                        document.getElementById("divIznosEur").innerHTML =
+                            "Vaš iznos u kn je (prije " + diff + "ms): " +
+                            (mojTecaj.srednji_tecaj * parseFloat(document.getElementById("convertor").value));
+                    } else {
+                        fetch("tecaj.json")
+                            .then(response => {
+                                if (response.ok) {
+                                    return response.json();
+                                } else {
+                                    throw new Error("Greška kod dohvata!");
+                                }
+                            })
+                            .then(arrTecaj => {
+                                let srednji_tecaj = arrTecaj.filter(x => x.valuta === 'EUR')[0].srednji_tecaj;
+                                localStorage.setItem('EUR', JSON.stringify({
+                                    ts: (new Date()).getTime(),
+                                    srednji_tecaj
+                                }));
+                            document.getElementById("divIznosEur").innerHTML = "Vaš iznos u kn je: " +
+                                (srednji_tecaj * parseFloat(document.getElementById("convertor").value));
+                            })
+                        .catch(err => {
+                            document.getElementById("divIznosEur").innerHTML = "Došlo je do pogreške: " + err;
+                        });
+                    }
+                } else {
+                    document.getElementById("divIznosEur").innerHTML = "Unesite ispravan pozitivan iznos u €";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <main>
+            <h1>Big title woooo</h1>
+            <h2 class="experimental-font-size">Smaller title woo</h2>
+            <h3>Tiny title wo</h3>
+            <h4>Small title to get to <a href="#pussboss" title="yesgoherepls" target="_self">puss</a> faster</h4>
+            <p>random piece of thext that doesnt respect whitespaces                 
+                              
+                     seee</p>
+            <p>multiple ps however act as newlines</p>
+            <hr/>
+            <p class="smallparagraph">anotherone Lee politically active in 2007 and went on to join the Democratic Action Party (DAP). 
+                He initially joined the party as a volunteer but got more involved as time went on. In 2012, 
+                he became the Youth Chief for the party's Youth Wing division of Bukit Bendera as well as the 
+                party's Deputy Youth Chief in Penang. <br/>
+                Following the 2013 Penang state election, Chris Lee was appointed as one of the 24 councillors of
+                the then Penang Island Municipal Council, taking office on 8 July. In 2015, the city status of 
+                George Town, Penang's capital city, was expanded to encompass the entirety of Penang Island, thus 
+                upgrading the local government into the present-day Penang Island City Council.[5] <br/>
+                On 26 April 2018, prior to the state election that year, Chris Lee stepped down as a Councillor 
+                of the Penang Island City Council and was selected to contest the state constituency of Pulau Tikus, 
+                where he had spent his childhood years.[1][6] Despite the three cornered tussle at the constituency, 
+                he prevailed in the election, winning by a margin of 9,245 votes.[7]</p>
+            <p>A link to some more <a href="https://boards.4chan.org/aco/">puss</a> if you should like</p>
+            <hr/>
+            <pre>preformated              text
+                that respects
+
+                whitespaces</pre>
+            <p>normaltext <b>boldedtext </b><i> italicstext</i><u> underlinedtext </u><sub> subtextiguess?</sub>&nbsp;<br/>X<sub>1</sub></p>
+            <ul style="list-style-type:circle">What makes you gay?
+                <li style="list-style-type: square">&nbsp;liking dick</li>
+                <li>&nbsp;liking men</li>
+                <li>&nbsp;not liking puss</li>
+            </ul>
+            <ol reversed="true" start="5">A sorted list of prettiest wamen
+                <li class="red">Luna Lovegood</li>
+                <li class="red">Sasha Grey</li>
+                <li>Shauna Grant</li>
+                <li>Emma Watson</li>
+                <li>Saoirse Ronan</li>
+            </ol>
+            <dl class="hor">Why is each language great?
+                <dt>Java</dt>
+                <dd>Because it can run on any goddamn system you want it to and because it's OO</dd>
+                <dt>Python</dt>
+                <dd>Because it's so high level even <mark>children</mark> can code in it</dd>
+                <dt>Bash</dt>
+                <dd>Because, despite being very nitpicky, it can automate everything imaginable</dd>
+            </dl>
+            <div class="kimmy"></div>
+            <form name="myshittyform">
+                <fieldset>
+                    <legend>Some input forms</legend>
+                    <label>Regular box: </label><input type="text" name="firsttextbox" value="eatmyass"><br/><br/>
+                    <label>Irregular box: </label><input type="text" name="secondtextbox" value="plsdont" hidden><br/><br/>
+                    <label>No touchy box: </label><input type="text" name="idk" value="canttouchthis" readonly><br/><br/>
+                    <label>Pattern box: </label><input type="text" name="numbas" value="123onlynumbershere" pattern="{0-9}*"><br/><br/>
+                    <label>Password box: </label><input type="password" name="passornot"><br/><br/>
+                    <label>Conversion &euro; to kn </label><input id="convertor" type="text" name="kntoeur" value="Input value in euro pls">
+                    <input type="button" value="CONVERT" id="convertor_BTN" onclick="convert()">
+                    <input type="button" value="COLOUR ME RED" ide="colour-btn" onclick="colourMe()">
+                    <div id="divIznosEur"></div>
+                </fieldset>
+            </form>
+            <form name="checkboxform">
+                <fieldset>
+                    <legend>Please choose: </legend>
+                    <input type="checkbox" name="prvi" value="ass" checked>Da
+                    <input type="checkbox" name="drugi" value="ass2">Ne<br/> 
+                    <input type="checkbox" name="treci" value="ass3" disabled>Nesto trece
+                </fieldset>
+            </form>
+            <form name="radiokilledthevideostar">
+                <fieldset>
+                    <legend>Pick the best lady!</legend>
+                    <input type="radio" name="ladies" checked><a href="https://i.ebayimg.com/images/g/Ra8AAOSw--Zg8i88/s-l400.jpg" target="_blank">Shauna Grant</a><br/>
+                    <input type="radio" name="ladies"><a href="https://i1.sndcdn.com/artworks-000463744053-4lbkt8-t500x500.jpg" target="_blank">Riley Reid</a><br>
+                    <input type="radio" name="ladies"><a href="https://pbs.twimg.com/media/Eu3FvhkUYAAnxAR.jpg" target="_blank">Elsa Jean</a>
+                </fieldset>
+            </form>
+            <hr/>
+            <input type="button" value="Cunt" onclick="alert('YEP')">
+            <input type="date"><br/><br/>
+            <input type="file" value="please select file"><br/><br/>
+            <label>Pick file please <input type="file"></label><br/><br/>
+            <label>Select booba
+            <select size="1">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+            </select>
+            </label><br/><br/>
+            <textarea name="boxybox" rows="5" cols="10">Init value</textarea><br/><br/>
+            <input type="reset" value="FALLBACK">
+            <figure class="hello">
+                <a href="https://boards.4chan.org/aco/" target="_blank">
+                <img src="../images/ladies/puss2.jpg" id="pussboss" alt="some very fine puss we'd all like to have" height="500px" width="500px">
+                </a>
+                <figcaption>Beautiful ukranian puss</figcaption>
+            </figure>
+
+            <div class="beauties"></div>
+
+            <div class="bigbox">
+                <div class="box-green box">
+                    <ul>To do:
+                        <li>111</li>
+                        <li>222</li>
+                        <li>333</li>
+                    </ul>
+                </div>
+                <div class="box-red box">
+                    <ul>!To do:
+                        <li>444</li>
+                        <li>555</li>
+                    </ul>
+                </div>
+            </div>
+            <hr/>
+            <ul class="flex-cont">
+                <ul class="flex-cont f-space-btwn">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                    <li class="flex-item">4</li>
+                    <li class="flex-item namer">space-between</li>
+                </ul>
+                <ul class="flex-cont f-cntr">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                    <li class="flex-item">4</li>
+                    <li class="flex-item namer">center</li>
+                </ul>
+                <ul class="flex-cont f-fx-end">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                    <li class="flex-item">4</li>
+                    <li class="flex-item namer">flex-end</li>
+                </ul>
+                <ul class="flex-cont f-fx-start">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                    <li class="flex-item">4</li>
+                    <li class="flex-item namer">flex-start</li>
+                </ul>
+                <ul class="flex-cont f-space-evn">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                    <li class="flex-item">4</li>
+                    <li class="flex-item namer">space-evenly</li>
+                </ul>
+                </ul>
+                <hr/>
+                <br/>
+                <div class="mastergrid" style="justify-items: center">
+                    <div class="griditem">1</div>
+                    <div class="griditem">2</div>
+                    <div class="griditem">3</div>
+                    <div class="griditem">4</div>
+                </div>
+                <div class="mastergrid" style="justify-items: start">
+                    <div class="griditem">1</div>
+                    <div class="griditem">2</div>
+                    <div class="griditem">3</div>
+                    <div class="griditem">4</div>
+                </div>
+                <div class="mastergrid" style="justify-items: end">
+                    <div class="griditem">1</div>
+                    <div class="griditem">2</div>
+                    <div class="griditem">3</div>
+                    <div class="griditem">4</div>
+                </div>
+                <div class="mastergrid" style="justify-items: stretch; grid-column-gap: 2px">
+                    <div class="griditem">1</div>
+                    <div class="griditem">2</div>
+                    <div class="griditem">3</div>
+                    <div class="griditem">4</div>
+                </div>
+        </main>
+    </body>
+</html>

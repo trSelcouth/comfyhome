@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tisibascudan</title>
+    <link href="/tech/tech-style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/tech/tech-js.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/tech/tech-index.html">TECH</a>
+      <a href="/404.html">D&amp;D</a>
+      <a href="/index.html" class="header-title">by Niksa</a>
+      <a href="/blog/index.html">BLOG</a>
+      <a href="/404.html">CONTACT</a>
+    </header>
+    <div class="sidebar">
+      <a href="day1.html">Day I</a>
+      <a href="day2.html">Day II</a>
+      <a href="day3.html">Day III</a>
+      <a href="day4.html">Day IV</a>
+      <a href="day5.html">Day V</a>
+      <a href="day6.html">Day VI</a>
+      <a href="day7.html">Day VII</a>
+      <a href="day8.html">Day VIII</a>
+    </div>
+    <div>
+      <pre class="code">input = open("input4.txt", "r").readlines()
+
+        fully_overlapping_pairs = 0
+        overlapping_pairs = 0
+        for pair in input:
+            are_overlapping = True
+            range_one = pair.strip().split(",")[0]
+            range_two = pair.strip().split(",")[1]
+            range_one_start = int(range_one.split("-")[0])
+            range_one_end = int(range_one.split("-")[1])
+            range_two_start = int(range_two.split("-")[0])
+            range_two_end = int(range_two.split("-")[1])
+        
+            print(pair.strip())
+            print("range one is from", range_one_start, "to", range_one_end)
+            print("range two is from", range_two_start, "to", range_two_end)
+        
+            full_range_one = range(range_one_start, range_one_end+1)
+            full_range_two = range(range_two_start, range_two_end+1)
+        
+            if len(full_range_one) <= len(full_range_two):
+                shorter_range = full_range_one
+                longer_range = full_range_two
+            else:
+                shorter_range = full_range_two
+                longer_range = full_range_one
+        
+            fully_overlapping_pairs += 1 if all(map(lambda x: x in longer_range, shorter_range)) else 0
+            overlapping_pairs += 1 if any(map(lambda x: x in longer_range, shorter_range)) else 0
+            # are_overlapping = True
+            # for element in shorter_range:
+            #     if element not in longer_range:
+            #         are_overlapping = False
+            #         break
+            # overlapping_pairs += 1 if are_overlapping else 0
+        
+        print("FULLY OVERLAPING PAIRS: " + str(fully_overlapping_pairs))
+        print("OVERLAPPING PAIRS: " + str(overlapping_pairs))</pre>
+    </div>
+  </body>
+</html>
+

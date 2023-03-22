@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tisibascudan</title>
+    <link href="/tech/tech-style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/tech/tech-js.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/tech/tech-index.html">TECH</a>
+      <a href="/404.html">D&amp;D</a>
+      <a href="/index.html" class="header-title">by Niksa</a>
+      <a href="/blog/index.html">BLOG</a>
+      <a href="/404.html">CONTACT</a>
+    </header>
+    <div class="sidebar">
+      <a href="day1.html">Day I</a>
+      <a href="day2.html">Day II</a>
+      <a href="day3.html">Day III</a>
+      <a href="day4.html">Day IV</a>
+      <a href="day5.html">Day V</a>
+      <a href="day6.html">Day VI</a>
+      <a href="day7.html">Day VII</a>
+      <a href="day8.html">Day VIII</a>
+    </div>
+    <div>
+      <pre class="code">#read input
+        input = open("input2.txt", "r").readlines()
+        #enums
+        ROCK_POINTS = 1
+        PAPER_POINTS = 2
+        SCISSOR_POINTS = 3
+        
+        LOSE_POINTS = 0
+        DRAW_POINTS = 3
+        WIN_POINTS = 6
+        
+        PLAYER = 0
+        OPPONENT = 0
+        ROCK = ["A", "X"]
+        PAPER = ["B", "Y"]
+        SCISSORS = ["C", "Z"]
+        # ROCK BEATS SCISSORS
+        # SCISSORS BEAT PAPER
+        # PAPER BEATS ROCK
+        
+        points = 0
+        
+        for line in input:
+            #parse for legibility
+            player = line.split(' ')[1].strip()
+            opponent = line.split(' ')[0].strip()
+        
+            #rock scenarios win/draw/lose(0 so skip)
+            if player in ROCK:
+                points += ROCK_POINTS
+                # win
+                if opponent in SCISSORS:
+                    points += WIN_POINTS
+                # draw
+                elif opponent in ROCK:
+                    points += DRAW_POINTS
+            #paper scenarios
+            elif player in PAPER:
+                points += PAPER_POINTS
+                # win
+                if opponent in ROCK:
+                    points += WIN_POINTS
+                # draw
+                elif opponent in PAPER:
+                    points += DRAW_POINTS
+            #scissor scenarios
+            elif player in SCISSORS:
+                points += SCISSOR_POINTS
+                # win
+                if opponent in PAPER:
+                    points += WIN_POINTS
+                # draw
+                elif opponent in SCISSORS:
+                    points += DRAW_POINTS
+        
+        print("TOTAL POINTS: " + str(points))</pre>
+    </div>
+        <div>
+          <p style="color: white; margin-left: 25%; font-size: 120%">Part Two</p>
+        </div>
+        <div>
+        <pre class="code">
+          #read input
+          input = open("input2.txt", "r").readlines()
+          
+          PLAY_POINTS = {"A": 1, "B": 2, "C": 3}
+          BEATS = {"A": "B", "B": "C", "C": "A"}
+          LOSES_TO = {"A": "C", "B": "A", "C": "B"}
+          
+          LOSE_POINTS = 0
+          DRAW_POINTS = 3
+          WIN_POINTS = 6
+          
+          ROCK = "A"
+          PAPER = "B"
+          SCISSORS = "C"
+          WIN = "Z"
+          DRAW = "Y"
+          LOSE = "X"
+          
+          # ROCK BEATS SCISSORS
+          # SCISSORS BEAT PAPER
+          # PAPER BEATS ROCK
+          
+          points = 0
+          
+          for game in input:
+              RESULT = game.split(' ')[1].strip()
+              OPPONENT = game.split(' ')[0].strip()
+          
+              if RESULT == DRAW:
+                  points += DRAW_POINTS + PLAY_POINTS[OPPONENT]
+              elif RESULT == WIN:
+                  points += WIN_POINTS + PLAY_POINTS[BEATS[OPPONENT]]
+              elif RESULT == LOSE:
+                  points += LOSE_POINTS + PLAY_POINTS[LOSES_TO[OPPONENT]]
+          
+          print("TOTAL POINTS:", str(points))
+        </pre>
+    </div>
+  </body>
+</html>
+

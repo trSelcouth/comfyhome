@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tisibascudan</title>
+    <link href="/tech/tech-style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/tech/tech-js.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/tech/tech-index.html">TECH</a>
+      <a href="/404.html">D&amp;D</a>
+      <a href="/index.html" class="header-title">by Niksa</a>
+      <a href="/blog/index.html">BLOG</a>
+      <a href="/404.html">CONTACT</a>
+    </header>
+    <div class="sidebar">
+      <a href="day1.html">Day I</a>
+      <a href="day2.html">Day II</a>
+      <a href="day3.html">Day III</a>
+      <a href="day4.html">Day IV</a>
+      <a href="day5.html">Day V</a>
+      <a href="day6.html">Day VI</a>
+      <a href="day7.html">Day VII</a>
+      <a href="day8.html">Day VIII</a>
+    </div>
+    <div>
+      <pre class="code">#read input
+        input = open("input3.txt", "r").readlines()
+        
+        PRIORITIES = {}
+        value = 1
+        
+        #creating a dictionary to assign each letter their priority value
+        #lowercase first (ascii from 97 to 122+1)
+        for letter in range(97, 123):
+            PRIORITIES[chr(letter)] = value
+            value += 1
+        
+        #uppercase second (ascii from 65 to 90+1)
+        for letter in range(65, 91):
+            PRIORITIES[chr(letter)] = value
+            value += 1
+        
+        # for letter in PRIORITIES:
+        #     print(letter, ":", PRIORITIES[letter])
+        
+        list_of_fuckups = []
+        #lets go over backpacks
+        for backpack in input:
+            # we made sure there are no backpacks with an odd number of items --> no need to cover that scenario
+            # if len(backpack.strip()) % 2 != 0:
+            #     print("WE GOT AN ODD ONE!")
+            backpack = backpack.strip()
+            midpoint = int(len(backpack) / 2)
+            first_half = set(backpack[:midpoint])
+            second_half = set(backpack[midpoint:])
+        
+            for character in first_half:
+                if character in second_half:
+                    list_of_fuckups.append(character)
+                    # print("Backpack " + str(first_half) + " - " + str(second_half) + "\nFuckup " + character + "\n")
+        
+        fuckup_priority_total = 0
+        for fuckup in list_of_fuckups:
+            fuckup_priority_total += PRIORITIES[fuckup]
+        
+        badges_number = 0
+        badges_priority_total = 0
+        for backpack in range(0, len(input), 3):
+            for item in set(input[backpack].strip()):
+                if item in input[backpack+1].strip() and item in input[backpack+2].strip():
+                    badges_priority_total += PRIORITIES[item]
+                    badges_number += 1
+        
+        print("TOTAL BADGE VALUE: ", badges_priority_total, "\nTOTAL NUMBER OF BADGES: ", str(badges_number))
+        print("TOTAL FUCKUP VALUE: ", fuckup_priority_total, "\nTOTAL NUMBER OF FUCKUPS: ", len(list_of_fuckups))</pre>
+    </div>
+  </body>
+</html>
+

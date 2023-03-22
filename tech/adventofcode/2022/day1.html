@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tisibascudan</title>
+    <link href="/tech/tech-style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/tech/tech-js.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/tech/tech-index.html">TECH</a>
+      <a href="/404.html">D&amp;D</a>
+      <a href="/index.html" class="header-title">by Niksa</a>
+      <a href="/blog/index.html">BLOG</a>
+      <a href="/404.html">CONTACT</a>
+    </header>
+    <div class="sidebar">
+      <a href="day1.html">Day I</a>
+      <a href="day2.html">Day II</a>
+      <a href="day3.html">Day III</a>
+      <a href="day4.html">Day IV</a>
+      <a href="day5.html">Day V</a>
+      <a href="day6.html">Day VI</a>
+      <a href="day7.html">Day VII</a>
+      <a href="day8.html">Day VIII</a>
+    </div>
+    <div>
+      <pre class="code">#read all lines from file and var init
+        input = open("input1.txt", "r").readlines()
+        elves = []
+        calories = 0
+        best_three = 0
+        
+        #for each line
+        for line in input:
+            #if it's empty - new elf. Save calories of previous elf and reset counter
+            if len(line) <= 1:
+                elves.append(calories)
+                calories = 0
+            #otherwise - add up calories to counter
+            else:
+                calories += int(line)
+        
+        #find elf with most calories, add up to counter, remove from elf list and repeat three times
+        for i in range(1,4):
+            max_elf = max(elves)
+            best_three += max_elf
+            elves.remove(max_elf)
+            print("Maximum calories on one elf: " + str(max_elf))
+            
+        print("Calories on three maxed elves: " + str(best_three))</pre>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tisibascudan</title>
+    <link href="/tech/tech-style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/tech/tech-js.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="/tech/tech-index.html">TECH</a>
+      <a href="/404.html">D&amp;D</a>
+      <a href="/index.html" class="header-title">by Niksa</a>
+      <a href="/blog/index.html">BLOG</a>
+      <a href="/404.html">CONTACT</a>
+    </header>
+    <div class="sidebar">
+      <a href="day1.html">Day I</a>
+      <a href="day2.html">Day II</a>
+      <a href="day3.html">Day III</a>
+      <a href="day4.html">Day IV</a>
+      <a href="day5.html">Day V</a>
+      <a href="day6.html">Day VI</a>
+      <a href="day7.html">Day VII</a>
+      <a href="day8.html">Day VIII</a>
+    </div>
+    <div>
+      <pre class="code">import sys
+
+        debug_level = 0
+        
+        def main(args):
+            global debug_level
+            debug_level = int(args[0]) if len(args) > 0 else 0
+            input = open("input8.txt", "r").readlines()
+        
+            inverted_input = create_invert_map(input)
+        
+            #turn input strings into int arrays
+            #also get rid of newlines
+            new_input = []
+            for line in input:
+                new_line = []
+                for element in line.strip():
+                    new_line.append(int(element))
+                new_input.append(new_line)
+        
+            calculate_visibility(new_input, inverted_input)
+            calculate_scenic_score(new_input, inverted_input)
+        
+        #create an inverse of maps - columns become rows and rows become columns
+        #this way we can just check the max() function twice to find visible trees
+        def create_invert_map(input):
+            #for each element
+            inverted_input = []
+            for element in range(len(input[0])-1):
+                new_line = []
+                #create a list of all elements in that column
+                for line in input:
+                    new_line.append(int(line[element].strip()))
+                #we create a list where rows are original columns
+                inverted_input.append(new_line)
+            return inverted_input
+        
+        
+        def calculate_visibility(input, inverted_input):
+            if debug_level > 0:
+                print("Original input")
+                for line in input:
+                    print(line)
+                print("Inverted input")
+                for line in inverted_input:
+                    print(line)
+        
+            counter = 0
+            visibility_visualisation = []
+        
+            #start visibility check for each element
+            for x in range(len(input)):
+                visualisation_line = []
+                
+                #trees on the edge are always visible - special scenario
+                if x == 0 or x == len(input)-1:
+                    counter += len(input)
+                    for i in range(len(input[x])):
+                        visualisation_line.append("O")
+                    visibility_visualisation.append(visualisation_line)
+                    continue
+        
+                for y in range(len(input[x])):
+                    #edge of the forest is always visible
+                    #check if he's the biggest tree in AT LEAST ONE direction
+                    if y == 0 or y == len(input[y])-1 \
+                        or input[x][y] > max(input[x][:y]) \
+                        or input[x][y] > max(input[x][y+1:]) \
+                        or input[x][y] > max(inverted_input[y][:x]) \
+                        or input[x][y] > max(inverted_input[y][x+1:]):
+                        counter += 1
+                        visualisation_line.append("O")
+                    else:
+                        visualisation_line.append("X")
+        
+                visibility_visualisation.append(visualisation_line)
+        
+            if debug_level > 0:
+                print("Visibility Visualisation")
+                for line in visibility_visualisation:
+                    print("".join(line))
+        
+            print("Number of visible trees: " + str(counter))
+        
+        
+        def look_in_line(current_tree, line):
+            trees_seen = 0
+            for tree in line:
+                trees_seen += 1
+                if current_tree <= tree:
+                    return trees_seen
+            return trees_seen
+        
+        def format_grid_print(input):
+            for line in input:
+                format_line = ""
+                for tree in line:
+                    format_line += "{:4d}".format(tree)
+                print(format_line)
+        
+        def calculate_scenic_score(input, inverted_input):
+            scenic_scores = []
+            scenic_score_map = []
+            if debug_level > 0:
+                format_grid_print(input)
+                print("=" * 100)
+            for x in range(len(input)):
+                scenic_score_line = []
+                for y in range(len(input[x])):
+                    current_tree = input[x][y]
+        
+                    #in order of appearance
+                    #look right, left, down and up
+                    scenic_score = look_in_line(current_tree, input[x][y+1:]) * \
+                                    look_in_line(current_tree, [input[x][z] for z in range(y-1, -1, -1)]) * \
+                                    look_in_line(current_tree, inverted_input[y][x+1:]) * \
+                                    look_in_line(current_tree, [inverted_input[y][z] for z in range(x-1, -1, -1)])
+        
+                    scenic_scores.append(scenic_score)
+                    scenic_score_line.append(scenic_score)
+        
+                scenic_score_map.append(scenic_score_line)
+        
+            if debug_level > 0:
+                format_grid_print(scenic_score_map)
+            print("BEST TREE: " + str(max(scenic_scores)))
+                    
+        
+        if __name__ == "__main__":
+            print("Advent of code - 2022 - Day 8")
+            main(sys.argv[1:])
+    </pre>
+    </div>
+  </body>
+</html>
+

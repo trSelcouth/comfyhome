@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sorter</title>
+        <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="/SortVisuals/sort.js"></script>
+        <link rel="stylesheet" href="/SortVisuals/sort.css">
+    </head>
+    <body>
+        <header>
+            <!-- HEADER HERE -->
+        </header>
+        <div>
+            <!-- CONTROLS HERE -->
+            <input type="button" id="generator-btn" value="Generate Array" onclick="generateArray()">
+            <input type="button" id="sort-btn bubble" value="Bubble Sort!" onclick="bblSort()">
+            <input type="button" id="sort-btn selection" value="Selection Sort!" onclick="selectionSort()">
+            <input type="button" id="sort-btn insertion" value="Insertion Sort!" onclick="insertionSort()">
+            <form action="../index.html" style="display:inline">
+                <input type="submit" value="Go back!">
+            </form>
+        </div>
+        <div>
+            <template id="first">
+                <div class="plr"></div>
+            </template>
+        </div>
+        <main class="main">
+            <div class="pillar-outer">
+            </div>
+        </main>
+    </body>
+</html>
